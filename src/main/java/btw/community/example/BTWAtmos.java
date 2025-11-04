@@ -1,10 +1,7 @@
 package btw.community.example;
 
-import btw.AddonHandler;
 import btw.BTWAddon;
 import eu.ha3.matmos.game.mod.LiteModMAtmos;
-import eu.ha3.matmos.game.system.MAtMod;
-import eu.ha3.mc.haddon.implem.HaddonUtilityImpl;
 import net.minecraft.src.Minecraft;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

@@ -19,6 +19,8 @@ import javax.xml.transform.stream.StreamResult;
 
 import net.sf.practicalxml.DomUtil;
 
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.text.WordUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -59,7 +61,7 @@ public class Expansion implements CustomVolume
 	
 	private SoundRelay soundManager;
 	
-//	private ConfigB myConfiguration;
+	private ConfigProperty myConfiguration;
 	private String friendlyName;
 	private boolean isBuilding;
 	
@@ -83,24 +85,27 @@ public class Expansion implements CustomVolume
 		this.dataFrequency = 1;
 		this.dataCyclic = 0;
 		
-//		this.myConfiguration = new ConfigProperty();
-//		this.myConfiguration.setProperty("volume", 1f);
-//		this.myConfiguration.setProperty("friendlyname", "");
-//		this.myConfiguration.commit();
-//		try
-//		{
-//			this.myConfiguration.setSource(configurationSource.getCanonicalPath());
-//			this.myConfiguration.load();
-//		}
-//		catch (IOException e1)
-//		{
-//			e1.printStackTrace();
-//		}
-//		this.friendlyName = this.myConfiguration.getString("friendlyname");
-//		if (this.friendlyName.equals(""))
-//		{
-//			this.friendlyName = userDefinedIdentifier;
-//		}
+		this.myConfiguration = new ConfigProperty();
+		this.myConfiguration.setProperty("volume", 1f);
+		this.myConfiguration.setProperty("friendlyname", "");
+		this.myConfiguration.commit();
+		try
+		{
+			this.myConfiguration.setSource(configurationSource.getCanonicalPath());
+			this.myConfiguration.load();
+		}
+		catch (IOException e1)
+		{
+			e1.printStackTrace();
+		}
+		this.friendlyName = this.myConfiguration.getString("friendlyname");
+		if (this.friendlyName.equals(""))
+		{
+			userDefinedIdentifier = StringUtils.removeEnd(userDefinedIdentifier, ".xml");
+			userDefinedIdentifier = StringUtils.replaceChars(userDefinedIdentifier, '_', ' ');
+			userDefinedIdentifier = WordUtils.capitalize(userDefinedIdentifier);
+			this.friendlyName = userDefinedIdentifier;
+		}
 
 		try
 		{

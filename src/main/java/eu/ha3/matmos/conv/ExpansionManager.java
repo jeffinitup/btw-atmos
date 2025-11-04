@@ -13,6 +13,8 @@ import eu.ha3.matmos.engine.interfaces.Data;
 import eu.ha3.matmos.engine.interfaces.SoundRelay;
 import eu.ha3.matmos.requirem.Collation;
 import eu.ha3.matmos.requirem.CollationOfRequirements;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.text.WordUtils;
 
 /* x-placeholder-wtfplv2 */
 
@@ -214,7 +216,8 @@ public class ExpansionManager
 		for (File file : offline)
 		{
 			MAtmosConvLogger.info("ExpansionLoader found offline " + file.getName() + ".");
-			createExpansionEntry(file.getName());
+			String filename = file.getName();
+			createExpansionEntry(filename);
 		}
 		
 	}

@@ -96,14 +96,6 @@ public class MAtMod extends HaddonImpl
 	@Override
 	public void onLoad()
 	{
-//		util().registerPrivateGetter(
-//			"currentServerData", Minecraft.class, -1, "currentServerData", "field_71422_O", "M");
-//		util().registerPrivateGetter("sndSystem", SoundManager.class, -1, "sndSystem", "field_77381_a", "b");
-//		util()
-//			.registerPrivateGetter("soundPoolSounds", SoundManager.class, -1, "soundPoolSounds", "field_77379_b", "d");
-//		util().registerPrivateGetter("isJumping", EntityLivingBase.class, -1, "isJumping", "field_70703_bu", "bd");
-//		util().registerPrivateGetter("isInWeb", Entity.class, -1, "isInWeb", "field_70134_J", "K");
-		
 		this.chatter = new Chatter(this, MOD_RAW_NAME);
 		this.matmosFolder = new File(Minecraft.getMinecraft().mcDataDir, "mods/matmos/");
 		// Look for installation errors
@@ -162,8 +154,8 @@ public class MAtMod extends HaddonImpl
 			throw new RuntimeException("Error caused config not to work: " + e.getMessage());
 		}
 		
-		appendResourcePacks();
 		createSoundManagerMaster();
+		appendResourcePacks();
 		
 		// This registers stuff to Minecraft (key bindings...)
 		this.userControl.load();
@@ -174,6 +166,7 @@ public class MAtMod extends HaddonImpl
 		if (this.config.getBoolean("start.enabled"))
 		{
 			initializeAndEnable();
+
 		}
 		
 	}
@@ -231,10 +224,10 @@ public class MAtMod extends HaddonImpl
 			MAtmosConvLogger.severe("The base Resource Manager is not a reloadable instance. "
 				+ "Unpredictable results will be caused by switching resource packs.");
 		}
-		
+
 		this.phase = MAtModPhase.READY;
 		MAtmosConvLogger.info("Ready.");
-		
+
 		startRunning();
 		
 		MAtmosConvLogger.info("Took " + this.timeStatistic.getSecondsAsString(3) + " seconds to enable MAtmos.");
@@ -392,7 +385,7 @@ public class MAtMod extends HaddonImpl
 		
 		this.expansionManager.soundRoutine();
 		this.soundManagerMaster.routine();
-		
+
 		this.userControl.onFrame(semi);
 	}
 	
@@ -412,11 +405,11 @@ public class MAtMod extends HaddonImpl
 					Ha3Utility.COLOR_YELLOW, " was NOT found. This folder should exist on a normal installation.");
 				
 			}
-//			((OperatorCaster) op()).setTickEnabled(false);
+			((OperatorCaster) op()).setTickEnabled(false);
 			return;
 		}
-		
-//		this.userControl.onTick();
+
+		this.userControl.onTick();
 		if (this.isRunning)
 		{
 			if (!this.dataRoll)
@@ -425,7 +418,6 @@ public class MAtMod extends HaddonImpl
 				this.dataGatherer.dataRoll();
 			}
 
-			this.userControl.onTick();
 			this.dataGatherer.tickRoutine();
 			this.expansionManager.dataRoutine();
 		}

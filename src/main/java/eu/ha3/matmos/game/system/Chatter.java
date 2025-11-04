@@ -2,7 +2,7 @@ package eu.ha3.matmos.game.system;
 
 import eu.ha3.mc.haddon.implem.Ha3Utility;
 import eu.ha3.mc.haddon.Haddon;
-import net.fabricmc.example.reimpl.Util;
+import net.fabricmc.example.shim.PortUtil;
 
 /* x-placeholder */
 
@@ -33,6 +33,6 @@ public class Chatter
 		System.arraycopy(in, 0, dest, 0, in.length);
 		System.arraycopy(args, 0, dest, in.length, args.length);
 
-		Util.printChat(dest);
+		PortUtil.printChat(dest);
 	}
 }

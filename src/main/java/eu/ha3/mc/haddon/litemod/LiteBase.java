@@ -25,8 +25,9 @@ public class LiteBase implements OperatorCaster
 	protected final boolean suFrame;
 	
 	protected int tickCounter;
-	protected boolean enableTick;
-	protected boolean enableFrame;
+	protected boolean enableTick = true;
+	protected boolean enableFrame = true;
+	protected boolean isLoaded = false;
 
 	private long ticksRan;
 	
@@ -62,6 +63,7 @@ public class LiteBase implements OperatorCaster
 	public void onInitCompleted(Minecraft minecraft)
 	{
 		this.haddon.onLoad();
+		this.isLoaded = true;
 	}
 
 	public Utility getUtility()
@@ -84,7 +86,7 @@ public class LiteBase implements OperatorCaster
 		if (!inGame)
 			return;
 		
-		if (clock)
+		if (clock && this.enableTick)
 		{
 			if (this.suTick)
 			{
@@ -126,5 +128,13 @@ public class LiteBase implements OperatorCaster
 			File oldConfigPath) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public boolean isLoaded() {
+		return this.isLoaded;
+	}
+
+	public Haddon getAddon() {
+		return this.haddon;
 	}
 }

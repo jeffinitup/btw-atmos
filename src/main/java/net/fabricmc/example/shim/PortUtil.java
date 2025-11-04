@@ -1,8 +1,8 @@
-package net.fabricmc.example.reimpl;
+package net.fabricmc.example.shim;
 
 import net.minecraft.src.Minecraft;
 
-public class Util {
+public class PortUtil {
     public static void printChat(Object... args)
     {
         if (Minecraft.getMinecraft().thePlayer == null)
@@ -14,5 +14,9 @@ public class Util {
             builder.append(o);
         }
         Minecraft.getMinecraft().thePlayer.addChatMessage(builder.toString());
+    }
+
+    public static boolean isInGame(Minecraft minecraft) {
+        return minecraft.theWorld != null;
     }
 }

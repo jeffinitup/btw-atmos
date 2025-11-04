@@ -6,7 +6,9 @@
   "mixins": [
   ],
   "client": [
-    "ExampleMixin"
+    "ExampleMixin",
+    "MinecraftMixin",
+    "WorldClientMixin"
   ],
   "injectors": {
     "defaultRequire": 1

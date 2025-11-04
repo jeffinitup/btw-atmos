@@ -32,7 +32,7 @@ repositories {
 
 loom {
 	setIntermediaryUrl('https://maven.legacyfabric.net/net/legacyfabric/intermediary/%1$s/intermediary-%1$s-v2.jar');
-	//accessWidenerPath = file('src/main/resources/<NAME>.accesswidener')
+	accessWidenerPath = file('src/main/resources/btwatmos.accesswidener')
 	addMinecraftJarProcessor(
 			BTWJarReplacer, "BTWJarReplacer", projectDir.toString()
 	)
@@ -54,6 +54,8 @@ dependencies {
 	implementation "org.lwjgl.lwjgl:lwjgl_util:${lwjglVersion}"
 	implementation "org.lwjgl.lwjgl:lwjgl:${lwjglVersion}"
 	implementation "org.lwjgl.lwjgl:lwjgl-platform:${lwjglVersion}"
+
+	implementation "net.sf.practicalxml:practicalxml:1.1.18"
 
 	implementation fileTree(dir: "libs", include: "**.zip")
 

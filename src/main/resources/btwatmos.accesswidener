@@ -1,0 +1,7 @@
+accessWidener v2 named
+accessible field net/minecraft/src/Minecraft defaultResourcePacks Ljava/util/List;
+accessible field net/minecraft/src/SoundManager sndSystem Lpaulscode/sound/SoundSystem;
+accessible field net/minecraft/src/SoundManager soundPoolSounds Lnet/minecraft/src/SoundPool;
+accessible field net/minecraft/src/Minecraft currentServerData Lnet/minecraft/src/ServerData;
+accessible field net/minecraft/src/EntityLivingBase isJumping Z
+accessible field net/minecraft/src/Entity isInWeb Z

@@ -112,17 +112,14 @@ public class Ha3SoundCommunicator
 
 		// soundPoolSounds
 		// XXX Get rid of private value getting on runtime
-		SoundPoolEntry soundpoolentry =
-				getSoundManager().soundPoolSounds.getRandomSoundFromSoundPool(sound);
+		SoundPoolEntry soundpoolentry = getSoundManager().soundPoolSounds.getRandomSoundFromSoundPool(sound);
 
-		if (soundpoolentry != null && vol > 0.0F)
+		if (soundpoolentry != null && vol > 0.0F && sndManager.loaded)
 		{
 			this.lastSoundID = (this.lastSoundID + 1) % this.maxIDs;
 			String sourceName = this.prefix + this.lastSoundID;
 
-			sndSystem.newSource(
-				vol > 1.0F, sourceName, soundpoolentry.getSoundUrl(), soundpoolentry.getSoundName(), false, x,
-				y, z, attnm, rollf);
+			sndSystem.newSource(vol > 1.0F, sourceName, soundpoolentry.getSoundUrl(), soundpoolentry.getSoundName(), false, x, y, z, attnm, rollf);
 			sndSystem.setPitch(sourceName, pitch);
 
 			if (vol > 1.0F)

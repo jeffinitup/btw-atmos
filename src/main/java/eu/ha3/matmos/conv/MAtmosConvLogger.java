@@ -1,5 +1,9 @@
 package eu.ha3.matmos.conv;
 
+import org.apache.logging.log4j.Level;
+
+import static com.jeffyjamzhd.btwatmos.BTWAtmos.LOGGER;
+
 /* x-placeholder */
 
 public class MAtmosConvLogger
@@ -20,22 +24,22 @@ public class MAtmosConvLogger
 	
 	public static void fine(String message)
 	{
-		print(message, "FINE", FINE);
+		LOGGER.trace(message);
 	}
 	
 	public static void info(String message)
 	{
-		print(message, "INFO", INFO);
+		LOGGER.info(message);
 	}
 	
 	public static void warning(String message)
 	{
-		print(message, "WARNING", WARNING);
+		LOGGER.warn(message);
 	}
 	
 	public static void severe(String message)
 	{
-		print(message, "SEVERE", SEVERE);
+		LOGGER.fatal(message);
 	}
 	
 	private static void print(String message, String type, int refinedLevel)

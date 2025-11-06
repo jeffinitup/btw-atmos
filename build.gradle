@@ -56,6 +56,9 @@ dependencies {
 	implementation "org.lwjgl.lwjgl:lwjgl-platform:${lwjglVersion}"
 
 	implementation "net.sf.practicalxml:practicalxml:1.1.18"
+	include "net.sf.practicalxml:practicalxml:1.1.18"
+	implementation "net.sf.kdgcommons:kdgcommons:1.0.14"
+	include "net.sf.kdgcommons:kdgcommons:1.0.14"
 
 	implementation fileTree(dir: "libs", include: "**.zip")
 

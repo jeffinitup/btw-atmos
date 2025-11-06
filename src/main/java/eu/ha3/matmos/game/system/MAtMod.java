@@ -161,14 +161,7 @@ public class MAtMod extends HaddonImpl
 		this.userControl.load();
 		
 		MAtmosConvLogger.info("Took " + this.timeStatistic.getSecondsAsString(3) + " seconds to setup MAtmos base.");
-		
 		this.phase = MAtModPhase.NOT_YET_ENABLED;
-		if (this.config.getBoolean("start.enabled"))
-		{
-			initializeAndEnable();
-
-		}
-		
 	}
 	
 	private void appendResourcePacks()
@@ -181,7 +174,13 @@ public class MAtMod extends HaddonImpl
 				Minecraft.getMinecraft().defaultResourcePacks.add(new FolderResourcePack(file));
 			}
 		}
-		Minecraft.getMinecraft().refreshResources();
+	}
+
+	public void preInit() {
+		if (this.config.getBoolean("start.enabled"))
+		{
+			initializeAndEnable();
+		}
 	}
 	
 	public void initializeAndEnable()

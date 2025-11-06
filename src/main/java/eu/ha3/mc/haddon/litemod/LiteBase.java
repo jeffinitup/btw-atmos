@@ -137,4 +137,8 @@ public class LiteBase implements OperatorCaster
 	public Haddon getAddon() {
 		return this.haddon;
 	}
+
+	public void setLoaded(boolean b) {
+		this.isLoaded = b;
+	}
 }

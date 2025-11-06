@@ -204,7 +204,8 @@ public class MAtProcessorFrequent extends MAtProcessorModel
 				break;
 			
 			case 40:
-				setValue(40, (int) Math.floor(player.swingProgress * 16));
+				// This will prevent the swing sound from spamming when mining a block
+				setValue(40, !mouseOverATile ? (int) Math.floor(player.swingProgress * 16) : 0);
 				break;
 			
 			case 41:

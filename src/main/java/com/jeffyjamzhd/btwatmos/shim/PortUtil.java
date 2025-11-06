@@ -1,4 +1,4 @@
-package net.fabricmc.example.shim;
+package com.jeffyjamzhd.btwatmos.shim;
 
 import net.minecraft.src.Minecraft;
 

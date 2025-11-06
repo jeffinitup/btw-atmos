@@ -1,6 +1,6 @@
-package net.fabricmc.example.mixin;
+package com.jeffyjamzhd.btwatmos.mixin;
 
-import btw.community.example.BTWAtmos;
+import com.jeffyjamzhd.btwatmos.BTWAtmos;
 import eu.ha3.matmos.game.system.MAtMod;
 import net.minecraft.src.GuiIngame;
 import net.minecraft.src.Minecraft;
@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class GuiIngameMixin {
     @Inject(method = "renderGameOverlay", at = @At("TAIL"))
     private void renderScroller(float par1, boolean par2, int par3, int par4, CallbackInfo ci) {
-        MAtMod addon = (MAtMod) BTWAtmos.mod_instance.getAddon();
+        MAtMod addon = (MAtMod) BTWAtmos.MATMOS.getAddon();
         addon.userControl.onFrame(Minecraft.getMinecraft().getTimer().renderPartialTicks);
     }
 }
